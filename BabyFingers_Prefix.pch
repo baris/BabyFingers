@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BabyFingers' target in the 'BabyFingers' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
