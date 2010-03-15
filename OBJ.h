@@ -6,25 +6,23 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "vertex.h"
-
+#import "Vertex3D.h"
+#import "Face3D.h"
 
 @interface OBJ : NSObject {
     NSString* name;
-
-    Vertex3D* vertex_tail;
-    Vertex3D* normal_tail;
-    
-    Vertex3D* vertices;
-    Vertex3D* normals;
+    NSMutableArray* vertices;
+    NSMutableArray* normals;
+    NSMutableArray* faces;
 }
 
-@property (readonly) Vertex3D* vertices;
-@property (readonly) Vertex3D* normals;
+@property (readonly) NSMutableArray* vertices;
+@property (readonly) NSMutableArray* normals;
+@property (readonly) NSMutableArray* faces;
 
 - (void) addVertex:(Vertex3D*) v;
-
 - (void) addNormal:(Vertex3D*) n;
+- (void) addFace:(Face3D*) f;
 
 
 @end

@@ -15,6 +15,9 @@
 		604B3028114DA66500BF1803 /* OBJParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 604B3026114DA66500BF1803 /* OBJParser.m */; };
 		6069EDBC114DA8D5007160BA /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6069EDBB114DA8D5007160BA /* cube.obj */; };
 		6069EDBE114DA8E5007160BA /* butterfly.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6069EDBD114DA8E5007160BA /* butterfly.obj */; };
+		6079669D114EDDB900D16F2F /* Vertex3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079669C114EDDB900D16F2F /* Vertex3D.m */; };
+		6079671D114EE79300D16F2F /* Face3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6079671C114EE79300D16F2F /* Face3D.m */; };
+		607968A9114EFCD900D16F2F /* short_knight.obj in Resources */ = {isa = PBXBuildFile; fileRef = 607968A8114EFCD900D16F2F /* short_knight.obj */; };
 		608F2CF3114DA7A6007E433D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608F2CF2114DA7A6007E433D /* OpenGL.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -40,12 +43,14 @@
 		604B3024114DA66500BF1803 /* OBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJ.m; sourceTree = "<group>"; };
 		604B3025114DA66500BF1803 /* OBJParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJParser.h; sourceTree = "<group>"; };
 		604B3026114DA66500BF1803 /* OBJParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJParser.m; sourceTree = "<group>"; };
-		604B3029114DA68A00BF1803 /* models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = models.h; sourceTree = "<group>"; };
 		604B302A114DA68A00BF1803 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
-		604B302B114DA68A00BF1803 /* vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vertex.h; sourceTree = "<group>"; };
 		6069EDBB114DA8D5007160BA /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		6069EDBD114DA8E5007160BA /* butterfly.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = butterfly.obj; sourceTree = "<group>"; };
-		608F2CF0114DA780007E433D /* butterfly_body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = butterfly_body.h; sourceTree = "<group>"; };
+		6079669B114EDDB900D16F2F /* Vertex3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex3D.h; sourceTree = "<group>"; };
+		6079669C114EDDB900D16F2F /* Vertex3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vertex3D.m; sourceTree = "<group>"; };
+		6079671B114EE79300D16F2F /* Face3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face3D.h; sourceTree = "<group>"; };
+		6079671C114EE79300D16F2F /* Face3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Face3D.m; sourceTree = "<group>"; };
+		607968A8114EFCD900D16F2F /* short_knight.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = short_knight.obj; sourceTree = "<group>"; };
 		608F2CF2114DA7A6007E433D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BabyFingers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyFingers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +72,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6079669B114EDDB900D16F2F /* Vertex3D.h */,
+				6079669C114EDDB900D16F2F /* Vertex3D.m */,
+				6079671B114EE79300D16F2F /* Face3D.h */,
+				6079671C114EE79300D16F2F /* Face3D.m */,
 				604B3023114DA66500BF1803 /* OBJ.h */,
 				604B3024114DA66500BF1803 /* OBJ.m */,
 				604B3025114DA66500BF1803 /* OBJParser.h */,
@@ -123,10 +132,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				608F2CF0114DA780007E433D /* butterfly_body.h */,
-				604B3029114DA68A00BF1803 /* models.h */,
 				604B302A114DA68A00BF1803 /* util.h */,
-				604B302B114DA68A00BF1803 /* vertex.h */,
 				32CA4F630368D1EE00C91783 /* BabyFingers_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -136,6 +142,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				607968A8114EFCD900D16F2F /* short_knight.obj */,
 				6069EDBD114DA8E5007160BA /* butterfly.obj */,
 				6069EDBB114DA8D5007160BA /* cube.obj */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -201,6 +208,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				6069EDBC114DA8D5007160BA /* cube.obj in Resources */,
 				6069EDBE114DA8E5007160BA /* butterfly.obj in Resources */,
+				607968A9114EFCD900D16F2F /* short_knight.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +225,8 @@
 				604B3022114DA64900BF1803 /* BabyWindow.m in Sources */,
 				604B3027114DA66500BF1803 /* OBJ.m in Sources */,
 				604B3028114DA66500BF1803 /* OBJParser.m in Sources */,
+				6079669D114EDDB900D16F2F /* Vertex3D.m in Sources */,
+				6079671D114EE79300D16F2F /* Face3D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

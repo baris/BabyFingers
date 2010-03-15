@@ -25,8 +25,9 @@ typedef enum {
 
 
 typedef enum {
-    S_VERTICES,
-    S_NORMALS,
+    S_VERTEX,
+    S_VERTEX_NORMAL,
+    S_FACE,
     
     S_UNKNOWN
 } ParserState;
@@ -40,9 +41,10 @@ typedef enum {
     NSUInteger size;
     NSUInteger index;
     ParserState state;
-    OBJ* current_object;
-    NSMutableArray* objects;
+    OBJ* object;
 }
+
+@property (readonly) OBJ* object;
 
 - (id) initWithFile:(NSString*)file;
 - (void) parse;
