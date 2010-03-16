@@ -13,6 +13,5 @@
 }
 
 - (void) initOpenGLView;
-- (void) drawRandomObject;
 
 @end

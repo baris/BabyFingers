@@ -14,7 +14,7 @@ NSString* texture_coordinate_start = @"vt";
 NSString* face_start = @"f";
 NSString* group_name_start = @"g";
 
-
+#pragma mark Global Utilities
 BOOL startsWith(NSString* str, NSString* start_str)
 {
     return [str compare:start_str 
@@ -28,9 +28,7 @@ NSString* lineRest(NSString* line, NSString* start)
             stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
 }
 
-
 #pragma mark OBJPaser
-
 @implementation OBJParser
 
 @synthesize object;
@@ -50,9 +48,7 @@ NSString* lineRest(NSString* line, NSString* start)
 
 - (void) dealloc
 {
-    [filename retain];
-    [filedata retain];
-    [object retain];
+    [object release];
     [super dealloc];
 }
 
@@ -107,23 +103,25 @@ NSString* lineRest(NSString* line, NSString* start)
         [v setY:[[chunks objectAtIndex:1] floatValue]];
         [v setZ:[[chunks objectAtIndex:2] floatValue]];
     }
+    [v autorelease];
     return v;
 }
 
-- (Face3D*) parseFace:(NSString*)str
+- (Face3D*) parseFace3D:(NSString*)str
 {
     Face3D* f = [[Face3D alloc] init];
-    NSArray* c1 = [str componentsSeparatedByString:@" "];
+    NSArray* chunks_1 = [str componentsSeparatedByString:@" "];
     NSUInteger f_v[3], f_t[3], f_n[3];
     for (int i=0; i < 3; i++) {
-        NSArray* c2 = [[c1 objectAtIndex:i] componentsSeparatedByString:@"/"];
-        f_v[i] = [[c2 objectAtIndex:0] intValue];
-        f_t[i] = [[c2 objectAtIndex:1] intValue];
-        f_n[i] = [[c2 objectAtIndex:2] intValue];
+        NSArray* chunks_2 = [[chunks_1 objectAtIndex:i] componentsSeparatedByString:@"/"];
+        f_v[i] = [[chunks_2 objectAtIndex:0] intValue];
+        f_t[i] = [[chunks_2 objectAtIndex:1] intValue];
+        f_n[i] = [[chunks_2 objectAtIndex:2] intValue];
     }
     [f setV:f_v];
     [f setT:f_t];
     [f setN:f_n];
+    [f autorelease];
     return f;
 }
 
@@ -139,16 +137,18 @@ NSString* lineRest(NSString* line, NSString* start)
             {
                 state = S_VERTEX;
                 NSString* vstr = lineRest(line, vertex_start);
-                [object addVertex:[self parseVertex3D:vstr]];
-                [vstr retain];
+                Vertex3D* vertex = [self parseVertex3D:vstr];
+                [object addVertex:vertex];
+                [vertex release];
                 break;
             }
             case T_VERTEX_NORMAL:
             {
                 state = S_VERTEX_NORMAL;
-                NSString* vstr = lineRest(line, vertex_normal_start);
-                [object addNormal:[self parseVertex3D:vstr]];
-                [vstr retain];
+                NSString* vnstr = lineRest(line, vertex_normal_start);
+                Vertex3D* normal = [self parseVertex3D:vnstr];
+                [object addNormal:normal];
+                [normal release];
                 break;
             }
             case T_TEXCOORD:
@@ -159,15 +159,15 @@ NSString* lineRest(NSString* line, NSString* start)
             case T_FACE:
             {
                 state = S_FACE;
-                NSString* vstr = lineRest(line, face_start);
-                [object addFace:[self parseFace:vstr]];
-                [vstr retain];
+                NSString* fstr = lineRest(line, face_start);
+                Face3D* face = [self parseFace3D:fstr];
+                [object addFace:face];
+                [face release];
                 break;
             }
             default:
                 break;
         }
-        [line retain];
     }
 
 }

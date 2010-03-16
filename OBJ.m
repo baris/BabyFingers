@@ -23,31 +23,32 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [name release];
+    [vertices release];
+    [normals release];
+    [faces release];
+    [super dealloc];
+}
+
 - (void) addVertex:(Vertex3D*) v
 {
+    [v retain];
     [vertices addObject:v];
-    [v release];
 }
 
 - (void) addNormal:(Vertex3D*) n
 {
+    [n retain];
     [normals addObject:n];
-    [n release];
 }
 
 - (void) addFace:(Face3D*) f
 {
+    [f retain];
     [faces addObject:f];
-    [f release];
 }
 
-- (void)dealloc
-{
-    [name retain];
-    [vertices retain];
-    [normals retain];
-    [faces retain];
-    [super dealloc];
-}
 
 @end

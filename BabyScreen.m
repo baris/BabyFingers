@@ -58,21 +58,6 @@
     [self drawRect:[self bounds]];
 }
 
-- (void)drawRect: (NSRect)bounds
-{
-    glClearColor(0.5, 0.5, 0.8, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-  //  glTranslated(0.5, 0.5, 0.2);
-    
-    [self drawRandomObject];
-    
-    [glContext flushBuffer];
-}
-
-
 - (OBJ*) loadOBJ:(NSString*)file
 {
     OBJParser* parser = [[OBJParser alloc] initWithFile:file];
@@ -89,20 +74,15 @@
     
     glBegin(GL_TRIANGLES);
     for (int f=0; f < num_faces; f++) {
-        //NSLog(@"f -- %d", f);
         Face3D* face = [[obj faces] objectAtIndex:f];
-        
         for (int i=0; i < 3; i++) {
-            //NSLog(@"i-- %d", i);
             Vertex3D* v = [[obj vertices] objectAtIndex:([face v][i] - 1)];
             Vertex3D* n = [[obj normals] objectAtIndex:([face n][i] - 1)];
             glNormal3f([n x], [n y], [n z]);
             glVertex3f([v x], [v y], [v z]);
         }
-        
     }
     glEnd();
-    
 }
 
 - (void) drawRandomObject
@@ -115,7 +95,6 @@
 
     srand(time(0) * i);
     int k = rand();
-    NSLog(@"%d", k);
 
     // TEST animation
     glRotated(i, i-k, i+k, i+45);
@@ -123,7 +102,18 @@
 
     OBJ* butterfly = [self loadOBJ:[[NSBundle mainBundle] pathForResource:@"butterfly" ofType:@"obj"]];
     [self drawObj:butterfly];
+    [butterfly release];
     
+}
+
+- (void)drawRect: (NSRect)bounds
+{
+    glClearColor(0.5, 0.5, 0.8, 0.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    [self drawRandomObject];
+    [glContext flushBuffer];
 }
 
 @end
