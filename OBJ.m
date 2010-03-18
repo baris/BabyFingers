@@ -5,6 +5,8 @@
 //  Created by Baris Metin
 //
 
+#import "Vertex3D.h"
+#import "Face3D.h"
 #import "OBJ.h"
 
 @implementation OBJ

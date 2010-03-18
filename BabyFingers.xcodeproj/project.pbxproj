@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		6024591811502630005357AF /* plane1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6024591711502630005357AF /* plane1.obj */; };
+		602459301150283E005357AF /* small_blimp.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6024592F1150283E005357AF /* small_blimp.obj */; };
 		604B3020114DA64900BF1803 /* BabyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604B301B114DA64900BF1803 /* BabyController.m */; };
 		604B3021114DA64900BF1803 /* BabyScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 604B301D114DA64900BF1803 /* BabyScreen.m */; };
 		604B3022114DA64900BF1803 /* BabyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 604B301F114DA64900BF1803 /* BabyWindow.m */; };
@@ -33,6 +35,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* BabyFingers_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyFingers_Prefix.pch; sourceTree = "<group>"; };
+		6024591711502630005357AF /* plane1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane1.obj; sourceTree = "<group>"; };
+		6024592F1150283E005357AF /* small_blimp.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = small_blimp.obj; sourceTree = "<group>"; };
 		604B301A114DA64900BF1803 /* BabyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyController.h; sourceTree = "<group>"; };
 		604B301B114DA64900BF1803 /* BabyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyController.m; sourceTree = "<group>"; };
 		604B301C114DA64900BF1803 /* BabyScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyScreen.h; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6024592F1150283E005357AF /* small_blimp.obj */,
+				6024591711502630005357AF /* plane1.obj */,
 				607968A8114EFCD900D16F2F /* short_knight.obj */,
 				6069EDBD114DA8E5007160BA /* butterfly.obj */,
 				6069EDBB114DA8D5007160BA /* cube.obj */,
@@ -209,6 +215,8 @@
 				6069EDBC114DA8D5007160BA /* cube.obj in Resources */,
 				6069EDBE114DA8E5007160BA /* butterfly.obj in Resources */,
 				607968A9114EFCD900D16F2F /* short_knight.obj in Resources */,
+				6024591811502630005357AF /* plane1.obj in Resources */,
+				602459301150283E005357AF /* small_blimp.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

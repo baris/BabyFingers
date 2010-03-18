@@ -6,8 +6,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Vertex3D.h"
-#import "Face3D.h"
+
+@class Vertex3D, Face3D;
 
 @interface OBJ : NSObject {
     NSString* name;
@@ -23,6 +23,5 @@
 - (void) addVertex:(Vertex3D*) v;
 - (void) addNormal:(Vertex3D*) n;
 - (void) addFace:(Face3D*) f;
-
 
 @end

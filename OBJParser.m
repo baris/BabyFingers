@@ -6,6 +6,7 @@
 //
 
 #import "util.h"
+#import "OBJ.h"
 #import "OBJParser.h"
 
 NSString* vertex_start = @"v";

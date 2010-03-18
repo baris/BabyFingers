@@ -6,7 +6,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "OBJ.h"
+
+@class OBJ;
 
 typedef enum {
     T_GROUP_NAME,
