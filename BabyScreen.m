@@ -33,20 +33,22 @@
     glEnable(GL_LIGHTING);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_LIGHT0);
-    
-    [self reshape];
 }
 
-- (void)reshape
+- (void) playSound: (NSString*)file
 {
-    NSRect baseRect = [self convertRectToBase:[self bounds]];    
-    glViewport(0, 0, baseRect.size.width, baseRect.size.height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
+    NSSound *sound = [[NSSound alloc] initWithContentsOfFile:file byReference:YES];
+    [sound play];
+}
+
+- (void) playRandomSound
+{
+    // TODO
 }
 
 - (void)keyDown: (NSEvent *)event
 {
+    [self playRandomSound];
     [self drawRect:[self bounds]];
 }
 
@@ -75,8 +77,9 @@
         for (int i=0; i < 3; i++) {
             Vertex3D* v = [[obj vertices] objectAtIndex:([face v][i] - 1)];
             Vertex3D* n = [[obj normals] objectAtIndex:([face n][i] - 1)];
-            glNormal3f([n x], [n y], [n z]);
+            
             glVertex3f([v x], [v y], [v z]);
+            glNormal3f([n x], [n y], [n z]);
         }
     }
     glEnd();
@@ -84,29 +87,26 @@
 
 - (void) drawRandomObject
 {
+    glPushMatrix();
     // TESTING
     static double i = 10;
     i += 10;
-    if (i >=360) i = 0;
+    if (i >=720) i = 0;
     
 
     srand(time(0) * i);
     int k = rand();
 
-    
-    glPushMatrix();
     // TEST animation
     glRotated(i, i/k, i*k, 0);
-    glTranslated(i/(k*360.0), -i/360.0, 0);
+    glScaled(4.0, 4.0, 4.0);
 
-//    glOrtho(-10.0, 10.0, -10.0, 10.0, -10.0, 10.0);
     static OBJ* obj = 0;
     if (!obj)
         obj = [self loadOBJ:[[NSBundle mainBundle] pathForResource:@"butterfly" ofType:@"obj"]];
     [self drawObj:obj];
 //    [obj release];
     glPopMatrix();
-    
 }
 
 - (void)drawRect: (NSRect)bounds
