@@ -8,6 +8,8 @@
 #import "util.h"
 #import "OBJ.h"
 #import "OBJParser.h"
+#import "Vertex3D.h"
+#import "Face3D.h"
 
 NSString* vertex_start = @"v";
 NSString* vertex_normal_start = @"vn";
@@ -131,7 +133,6 @@ NSString* lineRest(NSString* line, NSString* start)
     LineType line_type = T_UNKNOWN;    
     NSString* line;
     while ((line = [self readLine]) != NULL) {
-        // NSLog(line);
         line_type = [self typeOf:line];
         switch (line_type) {
             case T_VERTEX:
